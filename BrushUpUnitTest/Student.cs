@@ -125,5 +125,10 @@ namespace BrushUpUnitTest
                        GenderType == objectToCompare.GenderType;
             }
         }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode() + Adress.GetHashCode() + Semester.GetHashCode() + GenderType.GetHashCode();
+        }
     }
 }

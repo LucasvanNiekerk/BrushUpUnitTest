@@ -120,6 +120,19 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void TestOverrideGetHashCode()
+        {
+            Student student1 = new Student("Morten", "Et eller andet sted", 3, Gender.Male);
+            Student student2 = new Student("Lucas", "Et andet sted", 3, Gender.Male);
+            Student student3 = new Student("Morten", "Et eller andet sted", 3, Gender.Male);
+
+
+            Assert.IsFalse(student1.GetHashCode() == student2.GetHashCode());
+            Assert.IsFalse(student2.GetHashCode() == student1.GetHashCode());
+            Assert.IsTrue(student1.GetHashCode() == student3.GetHashCode());
+        }
+
+        [TestMethod]
         public void TestOverrideToString()
         {
             Assert.AreEqual("Name: Jacob", _stundent.ToString());
